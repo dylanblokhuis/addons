@@ -47,8 +47,8 @@
     ]
   },
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.develar.ElectronReact",
+    "productName": "Addons",
+    "appId": "org.dylanblokhuis.addons",
     "files": [
       "dist/",
       "node_modules/",
@@ -91,14 +91,13 @@
     },
     "publish": {
       "provider": "github",
-      "owner": "electron-react-boilerplate",
-      "repo": "electron-react-boilerplate",
+      "owner": "dylanblokhuis",
+      "repo": "addons",
       "private": false
     }
   },
   "license": "MIT",
   "devDependencies": {
-    "@amilajack/testcafe-browser-provider-electron": "^0.0.15-alpha.1",
     "@babel/core": "^7.10.2",
     "@babel/plugin-proposal-class-properties": "^7.10.1",
     "@babel/plugin-proposal-decorators": "^7.10.1",
@@ -122,14 +121,11 @@
     "@babel/preset-react": "^7.10.1",
     "@babel/preset-typescript": "^7.10.1",
     "@babel/register": "^7.10.1",
-    "@types/history": "^4.7.6",
     "@types/node": "12",
     "@types/react": "^16.9.38",
     "@types/react-dom": "^16.9.8",
     "@types/react-router": "^5.1.7",
     "@types/react-router-dom": "^5.1.5",
-    "@types/react-test-renderer": "^16.9.2",
-    "@types/tapable": "^1.0.6",
     "@types/vfile-message": "^2.0.0",
     "@types/webpack": "^4.41.17",
     "@types/webpack-env": "^1.15.2",
@@ -164,28 +160,20 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
-    "eslint-plugin-testcafe": "^0.2.1",
-    "fbjs-scripts": "^1.2.0",
     "file-loader": "^6.0.0",
-    "identity-obj-proxy": "^3.0.0",
     "lint-staged": "^10.2.11",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
     "opencollective-postinstall": "^2.0.3",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "prettier": "^2.0.5",
-    "react-test-renderer": "^16.12.0",
     "rimraf": "^3.0.0",
     "sass-loader": "^8.0.2",
-    "spectron": "^11.0.0",
     "style-loader": "^1.2.1",
     "stylelint": "^13.6.1",
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-config-standard": "^20.0.0",
     "terser-webpack-plugin": "^3.0.5",
-    "testcafe": "^1.8.6",
-    "testcafe-browser-provider-electron": "^0.0.15-alpha.1",
-    "testcafe-react-selectors": "^4.0.0",
     "typescript": "^3.9.5",
     "typings-for-css-modules-loader": "^1.7.0",
     "url-loader": "^4.1.0",
@@ -196,14 +184,12 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.13.0",
     "@hot-loader/react-dom": "^16.13.0",
     "core-js": "^3.6.5",
     "devtron": "^1.4.0",
     "electron-debug": "^3.1.0",
     "electron-log": "^4.2.2",
     "electron-updater": "^4.3.1",
-    "history": "4.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.12.0",
     "react-hot-loader": "^4.12.21",
@@ -214,9 +200,6 @@
     "node": ">=7.x",
     "npm": ">=4.x",
     "yarn": ">=0.21.3"
-  },
-  "collective": {
-    "url": "https://opencollective.com/electron-react-boilerplate-594"
   },
   "browserslist": [
     "extends browserslist-config-erb"
