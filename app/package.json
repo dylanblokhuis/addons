@@ -1,0 +1,13 @@
+{
+  "name": "addons",
+  "productName": "addons",
+  "version": "0.1.0",
+  "description": "Electron application to manage World of Warcraft Addons",
+  "main": "./main.prod.js",
+  "scripts": {
+    "electron-rebuild": "node -r ../scripts/BabelRegister.js ../scripts/ElectronRebuild.js",
+    "postinstall": "yarn electron-rebuild"
+  },
+  "license": "MIT",
+  "dependencies": {}
+}
