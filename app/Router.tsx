@@ -39,7 +39,7 @@ function Router() {
           </NavLink>
         </Sidebar>
 
-        <main className="px-4 pt-3">
+        <main className="px-4 pt-3 w-100">
           <Switch>
             <Route exact path="/">
               <Home />

@@ -198,7 +198,8 @@
     "react-hot-loader": "^4.12.21",
     "react-router-dom": "^5.2.0",
     "source-map-support": "^0.5.19",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "swr": "^0.2.3"
   },
   "devEngines": {
     "node": ">=7.x",

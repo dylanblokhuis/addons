@@ -10,10 +10,14 @@ export const theme = {
 };
 
 const Global = createGlobalStyle`
+  html {
+    height: 100%;
+  }
+
   body {
     position: relative;
     color: ${(props) => props.theme.color};
-    height: 100vh;
+    height: 100%;
     background-color: ${(props) => props.theme.background};
     font-family: ${(props) => props.theme.fontFamily};
     overflow-y: hidden;
@@ -21,6 +25,11 @@ const Global = createGlobalStyle`
 
   #root {
     height: 100%;
+  }
+
+  h1 {
+    font-weight: 500;
+    font-size: 30px;
   }
 `;
 
