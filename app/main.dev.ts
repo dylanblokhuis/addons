@@ -58,6 +58,7 @@ const createWindow = async () => {
     show: false,
     width: 1024,
     height: 728,
+    titleBarStyle: "hidden",
     webPreferences:
       (process.env.NODE_ENV === 'development' ||
         process.env.E2E_BUILD === 'true') &&
@@ -96,6 +97,7 @@ const createWindow = async () => {
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line
   new AppUpdater();
+
 };
 
 /**

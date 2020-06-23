@@ -126,6 +126,7 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-router": "^5.1.8",
     "@types/react-router-dom": "^5.1.5",
+    "@types/styled-components": "^5.1.0",
     "@types/vfile-message": "^2.0.0",
     "@types/webpack": "^4.41.17",
     "@types/webpack-env": "^1.15.2",
@@ -185,6 +186,7 @@
   },
   "dependencies": {
     "@hot-loader/react-dom": "^16.13.0",
+    "bootstrap-css-only": "^4.4.1",
     "core-js": "^3.6.5",
     "devtron": "^1.4.0",
     "electron-debug": "^3.1.0",
@@ -192,9 +194,11 @@
     "electron-updater": "^4.3.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-feather": "^2.0.8",
     "react-hot-loader": "^4.12.21",
     "react-router-dom": "^5.2.0",
-    "source-map-support": "^0.5.19"
+    "source-map-support": "^0.5.19",
+    "styled-components": "^5.1.1"
   },
   "devEngines": {
     "node": ">=7.x",
