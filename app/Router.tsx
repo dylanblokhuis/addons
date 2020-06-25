@@ -5,7 +5,11 @@ import {
   Route,
   NavLink,
 } from "react-router-dom";
-import { Grid as GridIcon, Settings as SettingsIcon } from "react-feather";
+import {
+  Grid as GridIcon,
+  Settings as SettingsIcon,
+  Search as SearchIcon,
+} from "react-feather";
 import styled from "styled-components";
 
 import Home from "./pages/Home";
@@ -33,6 +37,9 @@ function Router() {
         <Sidebar className="h-100 d-flex flex-column align-items-center">
           <NavLink exact to="/">
             <GridIcon />
+          </NavLink>
+          <NavLink to="/search">
+            <SearchIcon />
           </NavLink>
           <NavLink to="/settings">
             <SettingsIcon />

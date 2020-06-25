@@ -8,12 +8,14 @@ export const Button = styled.button`
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 14px;
-  border: 1px solid ${(props) => props.theme.backgroundDark};
+  border: 1px solid ${(props) =>
+  props.color ? props.color : props.theme.backgroundDark};
   transition: 50ms;
 
   &:focus {
     outline: none;
-    border: 1px solid ${(props) => props.theme.primary};
+    border: 1px solid ${(props) =>
+  props.color ? props.color : props.theme.primary};
   }
 
   &:active {
@@ -50,4 +52,16 @@ export const Table = styled.table`
     padding: 10px 15px;
     background: ${(props) => props.theme.backgroundDark};
   }
+`;
+
+export const Input = styled.input`
+  outline: none;
+  background: ${(props) =>
+  props.color ? props.color : props.theme.backgroundDark};
+  color: ${(props) => props.theme.color};
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  border: 1px solid ${(props) => props.theme.backgroundDark};
+  transition: 50ms;
 `;

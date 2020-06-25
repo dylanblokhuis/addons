@@ -8,11 +8,16 @@
  * When running `yarn build` or `yarn build-main`, this file is compiled to
  * `./app/main.prod.js` using webpack. This gives us some performance wins.
  */
-import path from 'path';
-import { app, BrowserWindow } from 'electron';
+import path, {extname} from 'path';
+import { readdirSync, readFileSync } from 'fs';
+import { app, BrowserWindow, ipcMain, dialog } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
+import { parse } from './util/toc';
+
 import MenuBuilder from './menu';
+import { confirm } from './util/curse';
+import { notEmpty } from './util/predicate';
 
 export default class AppUpdater {
   constructor() {
@@ -118,4 +123,49 @@ app.on('activate', () => {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) createWindow();
+});
+
+/**
+ * Ipc handlers
+ */
+ipcMain.handle('get-addons', async (event, path) => {
+  const addonsFolderPath = `${path}/_retail_/Interface/AddOns`;
+
+  const filesAndDirectories = readdirSync(addonsFolderPath, { withFileTypes: true });
+  const directories = filesAndDirectories.filter(dirent => dirent.isDirectory())
+
+  const foundAddons = await Promise.all(
+    directories.map(async directory => {
+      const tocFile = await readdirSync(`${addonsFolderPath}/${directory.name}`).find(file => {
+        return extname(file).toLowerCase() === '.toc';
+      });
+
+      if (!tocFile) return undefined
+
+      const buffer = await readFileSync(`${addonsFolderPath}/${directory.name}/${tocFile}`);
+      const { tags } = await parse(buffer.toString());
+
+      if (!tags.Title) return undefined;
+
+      return {
+        directory: directory.name,
+        tocFile: tocFile,
+        absolutePath: `${addonsFolderPath}/${directory.name}/${tocFile}`,
+        title: tags.Title
+      };
+    })
+  );
+
+  const overview = await confirm(foundAddons.filter(notEmpty));
+
+  console.log(overview);
+  return [];
+});
+
+ipcMain.handle('open-directory', async (event) => {
+  const path = dialog.showOpenDialog({
+      properties: ['openDirectory']
+  });
+
+  return path;
 });

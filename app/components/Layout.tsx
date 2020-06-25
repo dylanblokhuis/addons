@@ -3,7 +3,8 @@ import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 
 export const theme = {
   background: "#232c39",
-  primary: "#ffd60a",
+  primary: "#0066ff",
+  success: "green",
   fontFamily: "Inter, Roboto, Arial, Helvetica, Helvetica Neue, sans-serif;",
   color: "#fff",
   backgroundDark: "#0b0e13",
