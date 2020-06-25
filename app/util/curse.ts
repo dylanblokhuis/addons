@@ -22,6 +22,7 @@ export async function confirm(addons: Addons.CacheArgs[]) {
   let confirmedAddons: Addons.CacheReturn[] = [];
 
   for (const addon of addons) {
+    // to prevent double requests.
     if (confirmedAddons.find(confirmedAddon => confirmedAddon.title === addon.title)) {
       continue;
     }
@@ -29,9 +30,12 @@ export async function confirm(addons: Addons.CacheArgs[]) {
     const curseData = await getAddon(addon.title);
 
     if (curseData) {
+      // releaseType 1 means its the main version
       let latestRelease = curseData.latestFiles.find(latestFile => latestFile.releaseType === 1);
+      // if it doesn't exist get any version
       if (!latestRelease) latestRelease = curseData.latestFiles[0];
 
+      // module type 3 means its the main module
       const mainModule = latestRelease.modules.find(module => module.type === 3);
       if (!mainModule) {
         continue;
